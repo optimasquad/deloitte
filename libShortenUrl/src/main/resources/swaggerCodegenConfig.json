@@ -1,0 +1,6 @@
+{
+	"modelPackage": "com.tiny.url.model",
+	"apiPackage": "com.tiny.url.api",
+	"library": "resttemplate",
+	"sourceFolder": "src"
+}

@@ -1,0 +1,83 @@
+
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "These are the sample apis for Deloitte system",
+		"version": "1.0.0",
+		"title": "Deloitte APIstore"
+	},
+	"basePath": "/v1",
+	"tags": [
+		{
+			"name": "tiny",
+			"description": "tiny url of the api"
+		}
+	],
+	"schemes": [
+		"http",
+		"https"
+	],
+	"paths": {
+		"/shorten-url": {
+			"post": {
+				"tags": [
+					"tiny"
+				],
+				"summary": "Post the lengthy url and get the tiny urls in response",
+				"description": "Post the lengthy url and get the tiny urls in response",
+				"operationId": "createTinyUrl",
+				"produces": [
+					"application/json"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"description": "TinyUrl object that needs to be added to the store",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/TinyUrlRequest"
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "retrieve tiny url of the api",
+						"schema": {
+							"$ref": "#/definitions/TinyUrlResponse"
+						}
+					},
+					"400": {
+						"description": "Bad request"
+					},
+					"403": {
+						"description": "Permission denied"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"TinyUrlRequest": {
+			"type": "object",
+			"properties": {
+				"fullLengthUrl": {
+					"type": "string",
+					"description": "A human readable full length of url"
+				}
+			}
+		},
+		"TinyUrlResponse": {
+			"type": "object",
+			"properties": {
+				"tinyUrl": {
+					"type": "string",
+					"description": "Tiny Url Response of input full length url"
+				}
+			}
+		}
+	}
+}
